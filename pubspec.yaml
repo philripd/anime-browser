@@ -1,5 +1,5 @@
 name: stats_for_anilist
-description: A mobile app for viewing AniList statistics
+description: An unofficial AniList statistics app
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -34,8 +34,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  provider: ^6.0.2
 
 dev_dependencies:
+  flutter_app_name: ^0.1.1
+
   flutter_test:
     sdk: flutter
 
@@ -87,3 +90,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_app_name:
+  name: "Stats for AniList"
