@@ -29,10 +29,7 @@ class ThemeProvider extends ChangeNotifier {
 
 class Themes {
   static final darkTheme = ThemeData(
-    appBarTheme: AppBarTheme(
-      color: Colors.blue.shade600,
-      titleSpacing: 24,
-    ),
+    appBarTheme: _appBarTheme,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.grey.shade900,
       selectedItemColor: Colors.blue.shade600,
@@ -41,14 +38,20 @@ class Themes {
   );
 
   static final lightTheme = ThemeData(
-    appBarTheme: AppBarTheme(
-      color: Colors.blue.shade600,
-      titleSpacing: 24,
-    ),
+    appBarTheme: _appBarTheme,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.grey.shade300,
       selectedItemColor: Colors.blue.shade600,
     ),
     colorScheme: const ColorScheme.light(),
+  );
+
+  static final _appBarTheme = AppBarTheme(
+    color: Colors.blue.shade600,
+    titleSpacing: 24,
+    titleTextStyle: const TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+    ),
   );
 }

@@ -27,7 +27,7 @@ class _SettingsState extends State<Settings> {
                     padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                     child: Text(
                       'Theme: ',
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
                   Consumer<ThemeProvider>(
@@ -40,21 +40,21 @@ class _SettingsState extends State<Settings> {
                           value: 'light',
                           child: Text(
                             'Light',
-                            style: Theme.of(context).textTheme.headline5,
+                            style: Theme.of(context).textTheme.headline6,
                           ),
                         ),
                         DropdownMenuItem(
                           value: 'dark',
                           child: Text(
                             'Dark',
-                            style: Theme.of(context).textTheme.headline5,
+                            style: Theme.of(context).textTheme.headline6,
                           ),
                         ),
                         DropdownMenuItem(
                           value: 'system',
                           child: Text(
                             'System',
-                            style: Theme.of(context).textTheme.headline5,
+                            style: Theme.of(context).textTheme.headline6,
                           ),
                         ),
                       ],
