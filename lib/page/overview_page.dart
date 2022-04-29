@@ -3,18 +3,16 @@ import 'package:flutter/material.dart';
 class Overview extends StatefulWidget {
   const Overview({Key? key}) : super(key: key);
 
+  static const BottomNavigationBarItem navItem = BottomNavigationBarItem(
+    icon: Icon(Icons.home),
+    label: 'Overview',
+  );
+
   @override
   State<Overview> createState() => _OverviewState();
 }
 
 class _OverviewState extends State<Overview> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

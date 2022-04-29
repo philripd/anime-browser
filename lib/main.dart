@@ -59,14 +59,8 @@ class _MainMenuState extends State<MainMenu> {
           _selectedIndex = index;
         }),
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Overview',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
+          Overview.navItem,
+          Settings.navItem,
         ],
       ),
     );

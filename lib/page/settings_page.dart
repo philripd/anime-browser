@@ -5,6 +5,11 @@ import 'package:stats_for_anilist/provider/theme_provider.dart';
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
 
+  static const BottomNavigationBarItem navItem = BottomNavigationBarItem(
+    icon: Icon(Icons.settings),
+    label: 'Settings',
+  );
+
   @override
   State<Settings> createState() => _SettingsState();
 }
