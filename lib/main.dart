@@ -4,26 +4,29 @@ import 'package:stats_for_anilist/page/overview_page.dart';
 import 'package:stats_for_anilist/page/settings_page.dart';
 import 'package:stats_for_anilist/provider/theme_provider.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(
+    ChangeNotifierProvider<ThemeProvider>(
+      create: (_) => ThemeProvider()..initialize(),
+      child: const MyApp(),
+  ));
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      builder: (context, _) {
-        final themeProvider = Provider.of<ThemeProvider>(context);
-
+    return Consumer<ThemeProvider>(
+      builder: (context, provider, child) {
         return MaterialApp(
           title: 'Stats for AniList',
-          themeMode: themeProvider.themeMode,
+          themeMode: provider.themeMode,
           theme: Themes.lightTheme,
           darkTheme: Themes.darkTheme,
           home: const MainMenu(),
         );
-      },
+      }
     );
   }
 }
