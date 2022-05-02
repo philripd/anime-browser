@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:stats_for_anilist/page/overview_page.dart';
-import 'package:stats_for_anilist/page/settings_page.dart';
-import 'package:stats_for_anilist/provider/theme_provider.dart';
+import 'package:anilist_browser/page/overview_page.dart';
+import 'package:anilist_browser/page/settings_page.dart';
+import 'package:anilist_browser/provider/theme_provider.dart';
 
 void main() {
   runApp(
@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget {
     return Consumer<ThemeProvider>(
       builder: (context, provider, child) {
         return MaterialApp(
-          title: 'Stats for AniList',
-          themeMode: provider.themeMode,
-          theme: Themes.lightTheme,
-          darkTheme: Themes.darkTheme,
-          home: const MainMenu(),
+            title: 'AniList Browser',
+            themeMode: provider.themeMode,
+            theme: Themes.lightTheme,
+            darkTheme: Themes.darkTheme,
+            home: const MainMenu(),
         );
       }
     );

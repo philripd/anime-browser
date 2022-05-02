@@ -1,4 +1,4 @@
-package com.philripd.stats_for_anilist
+package com.philripd.anilist_browser
 
 import io.flutter.embedding.android.FlutterActivity
 

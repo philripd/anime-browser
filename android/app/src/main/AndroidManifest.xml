@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.philripd.stats_for_anilist">
+    package="com.philripd.anilist_browser">
    <application
-        android:label="Stats for AniList"
+        android:label="AniList Browser"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
