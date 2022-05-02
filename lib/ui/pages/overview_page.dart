@@ -22,10 +22,13 @@ class _OverviewState extends State<Overview> {
       ),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.all(24),
-          children: const [
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          children: [
             Text(
               'Index 0: Overview',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onBackground,
+              ),
               textAlign: TextAlign.center,
             ),
           ],

@@ -30,6 +30,20 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Architecture
+  flutter_bloc: ^8.0.1
+  get_it: ^7.2.0
+
+  # Networking + JSON serialization/deserialization annotations
+  http: ^0.13.4
+
+  # UI
+  google_fonts: ^2.3.1
+
+  # Miscellaneous
+  meta: ^1.7.0
+  equatable: ^2.0.3
+  loggy: ^2.0.1+1
   provider: ^6.0.2
   shared_preferences: ^2.0.13
 
@@ -44,10 +58,10 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^1.0.0
+  flutter_lints: ^1.0.4
 
 # For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+# following pages: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
