@@ -1,4 +1,4 @@
-import 'package:anilist_browser/ui/themes/colors.dart';
+import 'package:anilistbrowser/ui/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

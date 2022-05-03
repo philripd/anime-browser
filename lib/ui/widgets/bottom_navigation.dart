@@ -1,5 +1,5 @@
-import 'package:anilist_browser/ui/pages/overview_page.dart';
-import 'package:anilist_browser/ui/pages/settings_page.dart';
+import 'package:anilistbrowser/ui/pages/overview_page.dart';
+import 'package:anilistbrowser/ui/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {

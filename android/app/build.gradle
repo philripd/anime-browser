@@ -42,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.philripd.anilist_browser"
+        applicationId "com.philripd.anilistbrowser"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()

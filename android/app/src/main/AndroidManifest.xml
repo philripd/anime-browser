@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.philripd.anilist_browser">
+    package="com.philripd.anilistbrowser">
    <application
         android:label="AniList Browser"
         android:name="${applicationName}"

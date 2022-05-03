@@ -1,5 +1,5 @@
-import 'package:anilist_browser/provider/theme_provider.dart';
-import 'package:anilist_browser/ui/app.dart';
+import 'package:anilistbrowser/provider/theme_provider.dart';
+import 'package:anilistbrowser/ui/app.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
