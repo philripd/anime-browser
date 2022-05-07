@@ -1,3 +1,4 @@
+import 'package:animebrowser/config/router_config.dart';
 import 'package:animebrowser/ui/theme_provider.dart';
 import 'package:animebrowser/ui/themes/app_theme.dart';
 import 'package:animebrowser/ui/widgets/bottom_navigation.dart';
@@ -16,11 +17,11 @@ class App extends StatelessWidget {
     return Consumer<ThemeProvider>(
         builder: (context, provider, child) {
           return MaterialApp(
-            title: 'AniList Browser',
-            themeMode: provider.themeMode,
-            theme: lightAppTheme(context),
             darkTheme: darkAppTheme(context),
             home: const BottomNavigation(),
+            routes: appRoutes,
+            theme: lightAppTheme(context),
+            themeMode: provider.themeMode,
           );
         }
     );

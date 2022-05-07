@@ -12,8 +12,8 @@ class BottomNavigation extends StatefulWidget {
 class _MainMenuState extends State<BottomNavigation> {
   int _selectedIndex = 0;
   static const _pages = [
-    Overview(),
-    Settings(),
+    OverviewPage(),
+    SettingsPage(),
   ];
 
   @override
@@ -30,8 +30,8 @@ class _MainMenuState extends State<BottomNavigation> {
           _selectedIndex = index;
         }),
         items: const <BottomNavigationBarItem>[
-          Overview.navItem,
-          Settings.navItem,
+          OverviewPage.navItem,
+          SettingsPage.navItem,
         ],
       ),
     );

@@ -6,8 +6,8 @@ import 'package:animebrowser/ui/widgets/summary_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Overview extends StatefulWidget {
-  const Overview({Key? key}) : super(key: key);
+class OverviewPage extends StatefulWidget {
+  const OverviewPage({Key? key}) : super(key: key);
 
   static const BottomNavigationBarItem navItem = BottomNavigationBarItem(
     icon: Icon(Icons.home),
@@ -15,10 +15,10 @@ class Overview extends StatefulWidget {
   );
 
   @override
-  State<Overview> createState() => _OverviewState();
+  State<OverviewPage> createState() => _OverviewPageState();
 }
 
-class _OverviewState extends State<Overview> {
+class _OverviewPageState extends State<OverviewPage> {
 
   @override
   Widget build(BuildContext context) {

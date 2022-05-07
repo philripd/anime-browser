@@ -16,7 +16,7 @@ class SummaryWidget extends StatelessWidget {
   Widget build(BuildContext context) => InkWell(
         onTap: () {
           BlocProvider.of<DetailsCubit>(context).retrieveDetails(data.id);
-          DetailsScreen.navigateTo(context);
+          DetailsPage.navigateTo(context);
         },
         child: Card(
           clipBehavior: Clip.antiAlias,
