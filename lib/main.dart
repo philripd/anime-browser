@@ -1,12 +1,14 @@
-import 'package:anilistbrowser/provider/theme_provider.dart';
-import 'package:anilistbrowser/ui/app.dart';
+import 'package:animebrowser/config/dependencies_config.dart';
+import 'package:animebrowser/ui/theme_provider.dart';
+import 'package:animebrowser/ui/app.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  initializeDependencies();
   runApp(
     ChangeNotifierProvider<ThemeProvider>(
       create: (_) => ThemeProvider()..initialize(),
-      child: const App(),
+      child: initializeBlocs(mainAppWidget: const App()),
   ));
 }

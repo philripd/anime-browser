@@ -1,4 +1,4 @@
-import 'package:anilistbrowser/provider/theme_provider.dart';
+import 'package:animebrowser/ui/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

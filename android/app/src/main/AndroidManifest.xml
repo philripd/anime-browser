@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.philripd.anilistbrowser">
+    package="com.philripd.animebrowser">
    <application
-        android:label="AniList Browser"
+        android:label="Anime Browser"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

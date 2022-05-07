@@ -1,6 +1,6 @@
-import 'package:anilistbrowser/provider/theme_provider.dart';
-import 'package:anilistbrowser/ui/themes/app_theme.dart';
-import 'package:anilistbrowser/ui/widgets/bottom_navigation.dart';
+import 'package:animebrowser/ui/theme_provider.dart';
+import 'package:animebrowser/ui/themes/app_theme.dart';
+import 'package:animebrowser/ui/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';

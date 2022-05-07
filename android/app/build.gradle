@@ -42,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.philripd.anilistbrowser"
+        applicationId "com.philripd.animebrowser"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()

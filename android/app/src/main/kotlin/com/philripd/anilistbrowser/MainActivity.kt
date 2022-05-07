@@ -1,4 +1,4 @@
-package com.philripd.anilistbrowser
+package com.philripd.animebrowser
 
 import io.flutter.embedding.android.FlutterActivity
 

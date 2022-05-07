@@ -1,5 +1,5 @@
-name: anilistbrowser
-description: An unofficial AniList browser app
+name: animebrowser
+description: An anime browser app for AniList
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -103,4 +103,4 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
 flutter_app_name:
-  name: "AniList Browser"
+  name: "Anime Browser"
