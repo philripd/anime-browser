@@ -3,7 +3,7 @@ import 'package:animebrowser/blocs/status_enum.dart';
 import 'package:animebrowser/blocs/summary/summary_bloc.dart';
 import 'package:animebrowser/blocs/media/media_event.dart';
 import 'package:animebrowser/blocs/media/media_state.dart';
-import 'package:animebrowser/ui/widgets/summary_list_item.dart';
+import 'package:animebrowser/ui/widgets/media_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,7 +30,7 @@ class SeasonalAnimeList extends StatelessWidget {
             child: ListView.separated(
               itemCount: state.data.length,
               separatorBuilder: (_, __) => const SizedBox(height: 16.0),
-              itemBuilder: (_, int index) => SummaryListItem(
+              itemBuilder: (_, int index) => MediaListItem(
                 data: state.data[index],
               ),
             ),

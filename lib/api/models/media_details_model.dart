@@ -24,19 +24,17 @@ class MediaDetailsModel {
   });
 
   factory MediaDetailsModel.fromJson(Map<String, dynamic> json) => MediaDetailsModel._(
-        title: Pair(
-          json['title']['romaji'] as String,
-          json['title']['english'] as String?,
-        ),
-        description: (json['description'] as String).replaceAll(
-          RegExp(r'<[^>]*>'),
-          '',
-        ),
-        mediaURL: json['coverImage']['large'] as String,
-        genres: (json['genres'] as List<dynamic>).cast<String>(),
-        type: json['type'] as String?,
-        format: json['format'] as String?,
-        episodes: json['episodes'] as int?,
-        duration: json['duration'] as int?,
-      );
+    title: Pair(
+      json['title']['romaji'] as String,
+      json['title']['english'] as String?,
+    ),
+    description: (json['description'] as String).replaceAll(
+        RegExp(r'<[^>]*>'), ''),
+    mediaURL: json['coverImage']['large'] as String,
+    genres: (json['genres'] as List<dynamic>).cast<String>(),
+    type: json['type'] as String?,
+    format: json['format'] as String?,
+    episodes: json['episodes'] as int?,
+    duration: json['duration'] as int?,
+  );
 }

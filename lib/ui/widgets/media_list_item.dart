@@ -1,13 +1,13 @@
-import 'package:animebrowser/api/models/summary_model.dart';
-import 'package:animebrowser/blocs/details/details_cubit.dart';
-import 'package:animebrowser/ui/pages/details_page.dart';
+import 'package:animebrowser/api/models/media_list_model.dart';
+import 'package:animebrowser/blocs/media/media_details_cubit.dart';
+import 'package:animebrowser/ui/pages/media_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SummaryWidget extends StatelessWidget {
+class MediaListItem extends StatelessWidget {
   final SummaryModel data;
 
-  const SummaryWidget({
+  const MediaListItem({
     Key? key,
     required this.data,
   }) : super(key: key);
@@ -15,16 +15,16 @@ class SummaryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => InkWell(
         onTap: () {
-          BlocProvider.of<DetailsCubit>(context).retrieveDetails(data.id);
+          BlocProvider.of<MediaDetailsCubit>(context).retrieveDetails(data.id);
           DetailsPage.navigateTo(context);
         },
         child: Card(
           clipBehavior: Clip.antiAlias,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(30),
             side: BorderSide(
               color: Theme.of(context).colorScheme.onBackground,
-              width: 2.0,
+              width: 2,
             ),
           ),
           child: Container(
@@ -38,31 +38,35 @@ class SummaryWidget extends StatelessWidget {
                   child: Image.network(data.mediaURL, fit: BoxFit.cover),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                    top: 12.0,
-                    left: 24.0,
-                    right: 24.0,
-                  ),
+                  padding: const EdgeInsets.fromLTRB(24, 16, 24, 2),
                   child: Text(
-                    data.title,
+                    data.title.second != null
+                      ? '${data.title.second}'
+                      : data.title.first,
                     style: TextStyle(
-                      fontSize: 24.0,
+                      fontSize: 24,
                       color: Theme.of(context).colorScheme.onBackground,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
-                const SizedBox(height: 16.0),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 12.0,
-                    left: 24.0,
-                    right: 24.0,
+                if (data.title.second != null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Text('(${data.title.first})',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onBackground,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 16, 12, 24),
                   child: Text(
                     data.description,
                     style: TextStyle(
-                      fontSize: 16.0,
+                      fontSize: 16,
                       color: Theme.of(context)
                           .colorScheme
                           .onBackground

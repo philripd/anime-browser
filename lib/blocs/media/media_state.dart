@@ -1,4 +1,4 @@
-import 'package:animebrowser/api/models/summary_model.dart';
+import 'package:animebrowser/api/models/media_list_model.dart';
 import 'package:animebrowser/blocs/status_enum.dart';
 import 'package:equatable/equatable.dart';
 

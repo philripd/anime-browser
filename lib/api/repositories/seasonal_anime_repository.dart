@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:animebrowser/api/api_provider.dart';
 import 'package:animebrowser/api/models/graphql_request_model.dart';
-import 'package:animebrowser/api/models/summary_model.dart';
+import 'package:animebrowser/api/models/media_list_model.dart';
 import 'package:animebrowser/api/queries/seasonal_anime_query.dart';
 import 'package:animebrowser/config/dependencies_config.dart';
 import 'package:animebrowser/utils/helpers/format_query.dart';

@@ -33,73 +33,89 @@ class DetailsPage extends StatelessWidget {
                   data.mediaURL,
                   fit: BoxFit.cover,
                 ),
-                const SizedBox(height: 8.0),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 2),
                   child: Text(
                     data.title.second != null
-                        ? '${data.title.first} (${data.title.second})'
-                        : data.title.first,
+                      ? '${data.title.second}'
+                      : data.title.first,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onBackground,
-                      fontSize: 24.0,
+                      fontSize: 24,
                       fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  child: Text(
+                    data.title.second != null
+                      ? '(${data.title.first})'
+                      : "",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onBackground,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
                         '${data.format}',
                         style: TextStyle(
                           color: Theme.of(context)
-                              .colorScheme
-                              .onBackground
-                              .withAlpha(235),
+                            .colorScheme
+                            .onBackground
+                            .withAlpha(235),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Text(
-                        data.genres.join(', '),
-                        style: TextStyle(
-                          color: Theme.of(context)
+                    Flexible(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Text(
+                          data.genres.join(', '),
+                          style: TextStyle(
+                            color: Theme.of(context)
                               .colorScheme
                               .onBackground
                               .withAlpha(235),
+                          ),
                         ),
                       ),
                     ),
                   ],
                 ),
 
-                const SizedBox(height: 16.0),
-                if (data.duration != null)
-                  ListTile(
-                    leading: const Icon(Icons.timelapse),
-                    title: Text(
-                      '${data.duration} minutes',
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
-                    ),
-                  ),
                 if (data.episodes != null)
                   ListTile(
                     leading: const Icon(Icons.list),
                     title: Text(
-                      '${data.episodes} episodes',
+                      data.episodes == 1
+                        ? '1 episode'
+                        : '${data.episodes} episodes',
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
                       ),
                     ),
                   ),
-                const Divider(),
+                if (data.duration != null)
+                  ListTile(
+                    leading: const Icon(Icons.timelapse),
+                    title: Text(
+                      data.duration == 1
+                        ? '1 minute'
+                        : '${data.duration} minutes',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onBackground,
+                      ),
+                    ),
+                  ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     data.description,
                     style: TextStyle(

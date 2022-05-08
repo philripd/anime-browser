@@ -11,7 +11,7 @@ ThemeData lightAppTheme(BuildContext context) => ThemeData.from(
   textTheme: GoogleFonts.ralewayTextTheme(Theme.of(context).textTheme),
 ).copyWith(
   appBarTheme: AppBarTheme(
-    elevation: 0.0,
+    elevation: 0,
     centerTitle: true,
     color: colorBackgroundLight,
     titleTextStyle:

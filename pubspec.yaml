@@ -33,6 +33,7 @@ dependencies:
   # Architecture
   flutter_bloc: ^8.0.1
   get_it: ^7.2.0
+  provider: ^6.0.2
 
   # Networking + JSON serialization/deserialization annotations
   http: ^0.13.4
@@ -43,8 +44,8 @@ dependencies:
   # Miscellaneous
   meta: ^1.7.0
   equatable: ^2.0.3
+  intl: ^0.17.0
   loggy: ^2.0.1+1
-  provider: ^6.0.2
   shared_preferences: ^2.0.13
 
 dev_dependencies:
