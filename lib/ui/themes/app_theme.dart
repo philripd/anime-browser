@@ -16,12 +16,10 @@ ThemeData lightAppTheme(BuildContext context) => ThemeData.from(
     color: colorBackgroundLight,
     titleTextStyle:
       GoogleFonts.ralewayTextTheme(Theme.of(context).textTheme)
-        .headline6
-        ?.copyWith(color: Colors.black87),
+        .headline6?.copyWith(color: Colors.black87),
     iconTheme: const IconThemeData(color: Colors.black87),
   ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: Colors.grey.shade200,
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     selectedItemColor: colorProduct,
   ),
 );
@@ -35,17 +33,15 @@ ThemeData darkAppTheme(BuildContext context) => ThemeData.from(
   textTheme: GoogleFonts.ralewayTextTheme(Theme.of(context).textTheme),
 ).copyWith(
   appBarTheme: AppBarTheme(
-    elevation: 0.0,
+    elevation: 0,
     centerTitle: true,
     color: colorBackgroundDark,
     titleTextStyle:
       GoogleFonts.ralewayTextTheme(Theme.of(context).textTheme)
-        .headline6
-        ?.copyWith(color: Colors.white),
+        .headline6?.copyWith(color: Colors.white),
     iconTheme: const IconThemeData(color: Colors.white),
   ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: Colors.grey.shade900,
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     selectedItemColor: colorProduct,
   ),
 );
