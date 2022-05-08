@@ -19,6 +19,9 @@ String getCurrentSeason() {
   }
 }
 
-int getCurrentYear() {
-  return DateTime.now().year;
+int getCurrentSeasonYear() {
+  int currentYear = DateTime.now().year;
+
+  // Increment year if the current month is December
+  return DateTime.now().month == 12 ? currentYear + 1 : currentYear;
 }

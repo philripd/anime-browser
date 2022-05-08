@@ -23,8 +23,7 @@ class _OverviewPageState extends State<OverviewPage> {
       appBar: AppBar(
         title: Text(
           toBeginningOfSentenceCase(getCurrentSeason().toLowerCase())!
-          + " "
-          + getCurrentYear().toString()
+          + " " + getCurrentSeasonYear().toString()  + " Overview"
         )
       ),
       body: const SafeArea(
