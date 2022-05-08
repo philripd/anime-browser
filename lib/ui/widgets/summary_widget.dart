@@ -22,6 +22,10 @@ class SummaryWidget extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
+            side: BorderSide(
+              color: Theme.of(context).colorScheme.onBackground,
+              width: 2.0,
+            ),
           ),
           child: Container(
             color: Theme.of(context).colorScheme.background,
@@ -42,13 +46,13 @@ class SummaryWidget extends StatelessWidget {
                   child: Text(
                     data.title,
                     style: TextStyle(
-                      fontSize: 22.0,
+                      fontSize: 24.0,
                       color: Theme.of(context).colorScheme.onBackground,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
-                const SizedBox(height: 4.0),
+                const SizedBox(height: 16.0),
                 Padding(
                   padding: const EdgeInsets.only(
                     bottom: 12.0,

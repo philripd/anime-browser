@@ -35,7 +35,7 @@ class DetailsPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8.0),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                   child: Text(
                     data.title.second != null
                         ? '${data.title.first} (${data.title.second})'
@@ -43,22 +43,39 @@ class DetailsPage extends StatelessWidget {
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onBackground,
                       fontSize: 24.0,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Text(
-                    '${data.type}, ${data.format} | ${data.genres.join(', ')}',
-                    style: TextStyle(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onBackground
-                          .withAlpha(235),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Text(
+                        '${data.format}',
+                        style: TextStyle(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onBackground
+                              .withAlpha(235),
+                        ),
+                      ),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Text(
+                        data.genres.join(', '),
+                        style: TextStyle(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onBackground
+                              .withAlpha(235),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
+
                 const SizedBox(height: 16.0),
                 if (data.duration != null)
                   ListTile(

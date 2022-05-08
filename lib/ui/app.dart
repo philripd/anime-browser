@@ -1,6 +1,6 @@
 import 'package:animebrowser/config/router_config.dart';
-import 'package:animebrowser/ui/theme_provider.dart';
 import 'package:animebrowser/ui/themes/app_theme.dart';
+import 'package:animebrowser/ui/themes/theme_provider.dart';
 import 'package:animebrowser/ui/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
