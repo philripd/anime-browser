@@ -2,7 +2,7 @@ import 'package:animebrowser/utils/helpers/tuple.dart';
 import 'package:meta/meta.dart';
 
 @immutable
-class DetailsModel {
+class MediaDetailsModel {
   final Pair<String, String?> title;
   final String description;
   final String mediaURL;
@@ -12,7 +12,7 @@ class DetailsModel {
   final int? episodes;
   final int? duration;
 
-  const DetailsModel._({
+  const MediaDetailsModel._({
     required this.title,
     required this.description,
     required this.mediaURL,
@@ -23,7 +23,7 @@ class DetailsModel {
     required this.duration,
   });
 
-  factory DetailsModel.fromJson(Map<String, dynamic> json) => DetailsModel._(
+  factory MediaDetailsModel.fromJson(Map<String, dynamic> json) => MediaDetailsModel._(
         title: Pair(
           json['title']['romaji'] as String,
           json['title']['english'] as String?,

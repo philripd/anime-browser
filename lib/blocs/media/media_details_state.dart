@@ -1,28 +1,28 @@
-import 'package:animebrowser/api/models/details_model.dart';
+import 'package:animebrowser/api/models/media_details_model.dart';
 import 'package:animebrowser/blocs/status_enum.dart';
 import 'package:equatable/equatable.dart';
 
-class DetailsState extends Equatable {
+class MediaDetailsState extends Equatable {
   final StatusEnum status;
-  final DetailsModel? data;
+  final MediaDetailsModel? data;
   final String? errorMessage;
 
-  const DetailsState({
+  const MediaDetailsState({
     required this.status,
     this.data,
     this.errorMessage,
   });
 
-  factory DetailsState.loading() => const DetailsState(
+  factory MediaDetailsState.loading() => const MediaDetailsState(
         status: StatusEnum.loading,
       );
 
-  factory DetailsState.successful(DetailsModel details) => DetailsState(
+  factory MediaDetailsState.successful(MediaDetailsModel details) => MediaDetailsState(
         status: StatusEnum.successful,
         data: details,
       );
 
-  factory DetailsState.failed(String errorMessage) => DetailsState(
+  factory MediaDetailsState.failed(String errorMessage) => MediaDetailsState(
         status: StatusEnum.failed,
         errorMessage: errorMessage,
       );

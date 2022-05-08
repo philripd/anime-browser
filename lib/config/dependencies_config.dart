@@ -1,9 +1,9 @@
 import 'package:animebrowser/api/api_provider.dart';
-import 'package:animebrowser/api/repositories/details_repository.dart';
-import 'package:animebrowser/api/repositories/summary_repository.dart';
-import 'package:animebrowser/blocs/details/details_cubit.dart';
-import 'package:animebrowser/blocs/summary/summary_bloc.dart';
-import 'package:animebrowser/blocs/summary/summary_event.dart';
+import 'package:animebrowser/api/repositories/media_details_repository.dart';
+import 'package:animebrowser/api/repositories/seasonal_anime_repository.dart';
+import 'package:animebrowser/blocs/media/media_details_cubit.dart';
+import 'package:animebrowser/blocs/seasonal_anime/seasonal_anime_bloc.dart';
+import 'package:animebrowser/blocs/media/media_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -14,8 +14,8 @@ final GetIt getIt = GetIt.instance;
 void initializeDependencies() {
   Loggy.initLoggy();
 
-  getIt.registerSingleton<ApiProvider>(ApiProvider());
-  getIt.registerSingleton<ISummaryRepository>(SummaryRepository());
+  getIt.registerSingleton<APIProvider>(APIProvider());
+  getIt.registerSingleton<ISeasonalAnimeRepository>(SeasonalAnimeRepository());
   getIt.registerSingleton<IDetailsRepository>(DetailsRepository());
 }
 
@@ -24,10 +24,10 @@ MultiBlocProvider initializeBlocs({
 }) {
   return MultiBlocProvider(
     providers: [
-      BlocProvider<SummaryBloc>(
-        create: (_) => SummaryBloc()..add(const RetrieveSummaryEvent(1, 50)),
+      BlocProvider<SeasonalAnimeBloc>(
+        create: (_) => SeasonalAnimeBloc()..add(const RetrieveMediaEvent(1, 50)),
       ),
-      BlocProvider<DetailsCubit>(create: (_) => DetailsCubit()),
+      BlocProvider<MediaDetailsCubit>(create: (_) => MediaDetailsCubit()),
     ],
     child: mainAppWidget,
   );

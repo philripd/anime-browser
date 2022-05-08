@@ -5,7 +5,7 @@ import 'package:animebrowser/api/models/graphql_request_model.dart';
 import 'package:animebrowser/utils/exceptions/api_exception.dart';
 import 'package:http/http.dart';
 
-class ApiProvider {
+class APIProvider {
   static final Uri _baseUri = Uri.parse('https://graphql.anilist.co');
 
   Future<String> makeGraphQLRequest({

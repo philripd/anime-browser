@@ -2,21 +2,21 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 @sealed
-abstract class SummaryEvent extends Equatable {
-  const SummaryEvent._();
+abstract class MediaEvent extends Equatable {
+  const MediaEvent._();
 
   @protected
-  const factory SummaryEvent.retrieve(
+  const factory MediaEvent.retrieve(
     int page,
     int perPage,
-  ) = RetrieveSummaryEvent;
+  ) = RetrieveMediaEvent;
 }
 
-class RetrieveSummaryEvent extends SummaryEvent {
+class RetrieveMediaEvent extends MediaEvent {
   final int pageNumber;
   final int perPage;
 
-  const RetrieveSummaryEvent(
+  const RetrieveMediaEvent(
     this.pageNumber,
     this.perPage,
   ) : super._();

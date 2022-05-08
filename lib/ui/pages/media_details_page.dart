@@ -1,6 +1,6 @@
-import 'package:animebrowser/api/models/details_model.dart';
-import 'package:animebrowser/blocs/details/details_cubit.dart';
-import 'package:animebrowser/blocs/details/details_state.dart';
+import 'package:animebrowser/api/models/media_details_model.dart';
+import 'package:animebrowser/blocs/media/media_details_cubit.dart';
+import 'package:animebrowser/blocs/media/media_details_state.dart';
 import 'package:animebrowser/blocs/status_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,15 +17,15 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Details')),
-      body: BlocBuilder<DetailsCubit, DetailsState>(
-        builder: (BuildContext context, DetailsState state) {
+      body: BlocBuilder<MediaDetailsCubit, MediaDetailsState>(
+        builder: (BuildContext context, MediaDetailsState state) {
           if (state.status == StatusEnum.loading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state.status == StatusEnum.failed) {
             return Center(child: Text(state.errorMessage ?? 'Unknown'));
           } else if (state.status == StatusEnum.successful &&
               state.data != null) {
-            final data = state.data as DetailsModel;
+            final data = state.data as MediaDetailsModel;
             return ListView(
               padding: const EdgeInsets.only(bottom: 16.0),
               children: [
