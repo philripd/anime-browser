@@ -2,39 +2,42 @@ import 'dart:convert';
 
 import 'package:animebrowser/api/api_provider.dart';
 import 'package:animebrowser/api/models/graphql_request_model.dart';
-import 'package:animebrowser/api/models/summary_model.dart';
+import 'package:animebrowser/api/models/media_list_model.dart';
+import 'package:animebrowser/api/queries/media_overall_query.dart';
 import 'package:animebrowser/config/dependencies_config.dart';
-import 'package:animebrowser/utils/constants/graphql_queries.dart';
-import 'package:animebrowser/utils/helpers/format_query.helper.dart';
+import 'package:animebrowser/utils/helpers/format_query.dart';
 import 'package:animebrowser/utils/helpers/tuple.dart';
 import 'package:flutter/foundation.dart';
 
-typedef FetchSummaryInputType = Pair<ApiProvider, GraphQLRequestModel>;
+typedef FetchSummaryInputType = Pair<APIProvider, GraphQLRequestModel>;
 
 abstract class ISummaryRepository {
   Future<List<SummaryModel>> fetchSummary(int page, int perPage);
 }
 
 class SummaryRepository implements ISummaryRepository {
-  final ApiProvider _apiProvider;
+  final APIProvider _apiProvider;
 
-  SummaryRepository() : _apiProvider = getIt.get<ApiProvider>();
+  SummaryRepository() : _apiProvider = getIt.get<APIProvider>();
 
   @override
   Future<List<SummaryModel>> fetchSummary(int page, int perPage) async =>
-      compute<FetchSummaryInputType, List<SummaryModel>>(
-        _parseFetchSummary,
-        Pair(
-          _apiProvider,
-          GraphQLRequestModel(
-            query: formatQuery(fetchHomepageQuery),
-            variables: {'page': page, 'perPage': perPage},
-          ),
+    compute<FetchSummaryInputType, List<SummaryModel>>(
+      _parseSummary,
+      Pair(
+        _apiProvider,
+        GraphQLRequestModel(
+          query: formatQuery(mediaOverallQuery),
+          variables: {
+            'page': page,
+            'perPage': perPage
+          },
         ),
-      );
+      ),
+    );
 }
 
-Future<List<SummaryModel>> _parseFetchSummary(
+Future<List<SummaryModel>> _parseSummary(
   FetchSummaryInputType input,
 ) async {
   final rawResponse = await input.first.makeGraphQLRequest(
@@ -43,10 +46,10 @@ Future<List<SummaryModel>> _parseFetchSummary(
   final response = json.decode(rawResponse) as Map<String, dynamic>;
 
   return (response['data']['Page']['media'] as List<dynamic>)
-      .cast<Map<String, dynamic>>()
-      .where((element) =>
-          element['coverImage']['large'] != null &&
-          element['description'] != null)
-      .map((element) => SummaryModel.fromJson(element))
-      .toList();
+    .cast<Map<String, dynamic>>()
+    .where((element) =>
+      element['coverImage']['large'] != null &&
+      element['description'] != null)
+    .map((element) => SummaryModel.fromJson(element))
+    .toList();
 }

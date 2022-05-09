@@ -1,6 +1,6 @@
 import 'package:animebrowser/blocs/seasonal_anime/seasonal_anime_bloc.dart';
 import 'package:animebrowser/blocs/status_enum.dart';
-import 'package:animebrowser/blocs/summary/summary_bloc.dart';
+import 'package:animebrowser/blocs/summary/media_summary_bloc.dart';
 import 'package:animebrowser/blocs/media/media_event.dart';
 import 'package:animebrowser/blocs/media/media_state.dart';
 import 'package:animebrowser/ui/widgets/media_list_item.dart';
@@ -23,7 +23,7 @@ class SeasonalAnimeList extends StatelessWidget {
         } else if (state.status == StatusEnum.successful) {
           return RefreshIndicator(
             onRefresh: () {
-              BlocProvider.of<SummaryBloc>(context)
+              BlocProvider.of<MediaSummaryBloc>(context)
                   .add(const RetrieveMediaEvent(1, 50));
               return Future.delayed(const Duration(milliseconds: 150));
             },

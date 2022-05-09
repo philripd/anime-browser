@@ -24,15 +24,16 @@ class _MainMenuState extends State<BottomNavigation> {
         children: _pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
-        onTap: (index) => setState(() {
-          _selectedIndex = index;
-        }),
         items: const <BottomNavigationBarItem>[
           OverviewPage.navItem,
           SettingsPage.navItem,
         ],
+        onTap: (index) => setState(() {_selectedIndex = index;}),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        iconSize: 30,
+        type: BottomNavigationBarType.fixed,
       ),
     );
   }
