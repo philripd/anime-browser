@@ -1,6 +1,6 @@
 import 'package:animebrowser/blocs/seasonal_anime/seasonal_anime_bloc.dart';
 import 'package:animebrowser/blocs/status_enum.dart';
-import 'package:animebrowser/blocs/summary/media_summary_bloc.dart';
+import 'package:animebrowser/blocs/media/media_summary_bloc.dart';
 import 'package:animebrowser/blocs/media/media_event.dart';
 import 'package:animebrowser/blocs/media/media_state.dart';
 import 'package:animebrowser/ui/widgets/media_list_item.dart';

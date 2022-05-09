@@ -17,6 +17,7 @@ class App extends StatelessWidget {
     return Consumer<ThemeProvider>(
         builder: (context, provider, child) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             darkTheme: darkAppTheme(context),
             home: const BottomNavigation(),
             routes: appRoutes,
