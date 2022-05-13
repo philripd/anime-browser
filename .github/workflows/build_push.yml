@@ -71,7 +71,7 @@ jobs:
           echo "APK_ARMEABI_V7A_SHA=$sha" >> $GITHUB_ENV
 
           cp build/app/outputs/flutter-apk/app-x86_64-release.apk animebrowser-x86_64-${{ env.VERSION_TAG }}.apk
-          sha=`sha256sum animebrowser-x86-${{ env.VERSION_TAG }}.apk | awk '{ print $1 }'`
+          sha=`sha256sum animebrowser-x86_64-${{ env.VERSION_TAG }}.apk | awk '{ print $1 }'`
           echo "APK_X86_SHA=$sha" >> $GITHUB_ENV
 
       - name: Create Release
