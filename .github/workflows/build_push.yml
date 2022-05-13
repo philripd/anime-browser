@@ -35,6 +35,7 @@ jobs:
       - run: flutter --version
       - run: flutter pub get
       - run: flutter analyze
+      - run: flutter build apk
       - run: flutter build apk --split-per-abi
 
       - name: Get tag name
