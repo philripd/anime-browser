@@ -59,7 +59,7 @@ jobs:
         run: |
           set -e
 
-          mv build/app/outputs/flutter-apk/app.apk animebrowser-${{ env.VERSION_TAG }}.apk
+          mv build/app/outputs/flutter-apk/app-release.apk animebrowser-${{ env.VERSION_TAG }}.apk
           sha=`sha256sum animebrowser-${{ env.VERSION_TAG }}.apk | awk '{ print $1 }'`
           echo "APK_UNIVERSAL_SHA=$sha" >> $GITHUB_ENV
 
