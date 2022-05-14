@@ -92,6 +92,16 @@ jobs:
           tag_name: ${{ env.VERSION_TAG }}
           name: Anime Browser ${{ env.VERSION_TAG }}
           body: |
+
+
+            ---
+
+            ### Download
+            If you wish to receive automatic updates, please download from [Google Play](https://play.google.com/store/apps/details?id=com.philripd.animebrowser).
+
+            Otherwise, please download the appropriate APK for your device's CPU architecture in the Assets dropdown menu below this changelog.
+            If you don't know which one to choose, download `animebrowser-${{ env.VERSION_TAG }}.apk`.
+
             ---
 
             ### Checksums
