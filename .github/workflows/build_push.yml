@@ -39,7 +39,7 @@ jobs:
           echo "storePassword=${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword=${{ secrets.KEY_PASSWORD }}
           keyAlias=${{ secrets.ALIAS }}
-          storeFile=upload-keystore.jks" > ${{env.PROPERTIES_PATH}}
+          storeFile=upload-keystore.jks" > android/key.properties
 
       - name: Decode base64 key into keystore file
         run: echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > android/app/upload-keystore.jks
@@ -111,4 +111,3 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PROPERTIES_PATH: "./android/key.properties"
