@@ -27,14 +27,14 @@ class DetailsPage extends StatelessWidget {
               state.data != null) {
             final data = state.data as MediaDetailsModel;
             return ListView(
-              padding: const EdgeInsets.only(bottom: 16.0),
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
               children: [
                 Image.network(
                   data.mediaURL,
                   fit: BoxFit.cover,
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 2),
+                  padding: const EdgeInsets.only(top: 16, bottom: 2),
                   child: Text(
                     data.title.second != null
                       ? '${data.title.second}'
@@ -47,7 +47,7 @@ class DetailsPage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  padding: const EdgeInsets.only(bottom: 16),
                   child: Text(
                     data.title.second != null
                       ? '(${data.title.first})'
@@ -59,24 +59,25 @@ class DetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(
+                Table(
+                  columnWidths: const {
+                    0: FlexColumnWidth(20),
+                    1: FlexColumnWidth(80),
+                  },
+                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Text(
-                        '${data.format}',
-                        style: TextStyle(
-                          color: Theme.of(context)
-                            .colorScheme
-                            .onBackground
-                            .withAlpha(235),
+                    TableRow(
+                      children: [
+                        Text(
+                          '${data.format}',
+                          style: TextStyle(
+                            color: Theme.of(context)
+                              .colorScheme
+                              .onBackground
+                              .withAlpha(235),
+                          ),
                         ),
-                      ),
-                    ),
-                    Flexible(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Text(
+                        Text(
                           data.genres.join(', '),
                           style: TextStyle(
                             color: Theme.of(context)
@@ -85,37 +86,58 @@ class DetailsPage extends StatelessWidget {
                               .withAlpha(235),
                           ),
                         ),
-                      ),
+                      ],
                     ),
+                    if (data.episodes != null)
+                      TableRow(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 8),
+                            child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Icon(Icons.list)
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(
+                              data.episodes == 1
+                                ? '1 episode'
+                                : '${data.episodes} episodes',
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.onBackground,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    if (data.duration != null)
+                      TableRow(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 8),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Icon(Icons.timelapse),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(
+                              data.duration == 1
+                                ? '1 minute'
+                                : '${data.duration} minutes',
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.onBackground,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                   ],
                 ),
-
-                if (data.episodes != null)
-                  ListTile(
-                    leading: const Icon(Icons.list),
-                    title: Text(
-                      data.episodes == 1
-                        ? '1 episode'
-                        : '${data.episodes} episodes',
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
-                    ),
-                  ),
-                if (data.duration != null)
-                  ListTile(
-                    leading: const Icon(Icons.timelapse),
-                    title: Text(
-                      data.duration == 1
-                        ? '1 minute'
-                        : '${data.duration} minutes',
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onBackground,
-                      ),
-                    ),
-                  ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.only(top: 16),
                   child: Text(
                     data.description,
                     style: TextStyle(
