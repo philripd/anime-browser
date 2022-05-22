@@ -53,7 +53,7 @@ Future<List<SummaryModel>> _parseSeasonalAnime(
   return (response['data']['Page']['media'] as List<dynamic>)
     .cast<Map<String, dynamic>>()
     .where((element) =>
-      element['coverImage']['large'] != null &&
+      element['coverImage']['extraLarge'] != null &&
       element['description'] != null)
     .map((element) => SummaryModel.fromJson(element))
     .toList();

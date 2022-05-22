@@ -12,3 +12,16 @@ class Pair<A, B> extends Equatable {
   @override
   List<Object?> get props => [first, second];
 }
+
+@immutable
+class Trio<A, B, C> extends Equatable {
+  final A first;
+  final B second;
+  final C third;
+
+  @literal
+  const Trio(this.first, this.second, this.third);
+
+  @override
+  List<Object?> get props => [first, second];
+}

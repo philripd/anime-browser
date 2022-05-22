@@ -35,7 +35,7 @@ class MediaListItem extends StatelessWidget {
               children: [
                 AspectRatio(
                   aspectRatio: 6 / 4,
-                  child: Image.network(data.mediaURL, fit: BoxFit.cover),
+                  child: Image.network(data.coverImage, fit: BoxFit.cover),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(24, 16, 24, 2),

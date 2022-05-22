@@ -22,7 +22,7 @@ query(
       }
       description
       coverImage {
-        large
+        extraLarge
       }
     }
   }

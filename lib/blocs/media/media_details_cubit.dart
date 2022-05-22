@@ -13,7 +13,7 @@ class MediaDetailsCubit extends Cubit<MediaDetailsState> with BlocLoggy {
         super(MediaDetailsState.loading());
 
   Future<void> retrieveDetails(int mediaID) async {
-    loggy.info('Retrieve details for $mediaID');
+    loggy.info('Retrieve details for media ID: $mediaID');
 
     emit(MediaDetailsState.loading());
     try {

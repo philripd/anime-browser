@@ -6,13 +6,13 @@ class SummaryModel {
   final int id;
   final Pair<String, String?> title;
   final String description;
-  final String mediaURL;
+  final String coverImage;
 
   const SummaryModel._({
     required this.id,
     required this.title,
     required this.description,
-    required this.mediaURL,
+    required this.coverImage,
   });
 
   factory SummaryModel.fromJson(Map<String, dynamic> json) => SummaryModel._(
@@ -32,6 +32,6 @@ class SummaryModel {
             .join(' ')
             .replaceAll(RegExp(r'<[^>]*>'), '')
           + '...',
-        mediaURL: json['coverImage']['large'] as String,
+        coverImage: json['coverImage']['extraLarge'] as String,
       );
 }
