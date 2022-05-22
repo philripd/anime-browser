@@ -30,8 +30,17 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.x.x'
+          flutter-version: '3.x'
           cache: true
+
+      - name: Update Flutter
+        run: flutter upgrade
+
+      - name: Get Flutter packages
+        run: flutter pub get
+
+      - name: Analyze Dart code
+        run: flutter analyze
 
       - name: Create key.properties file
         run: |
@@ -43,15 +52,6 @@ jobs:
 
       - name: Decode base64 key into keystore file
         run: echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > android/app/upload-keystore.jks
-
-      - name: Get Flutter version
-        run: flutter --version
-
-      - name: Get Flutter packages
-        run: flutter pub get
-
-      - name: Analyze Dart code
-        run: flutter analyze
 
       - name: Build APKs
         run: |
