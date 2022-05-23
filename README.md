@@ -26,9 +26,9 @@
 
 
 
-Anime Browser is a free and open-source unofficial client for [AniList](https://anilist.co/), a place where you can track, share, and discover your favorite anime and manga.
+Anime Browser is an unofficial client for [AniList](https://anilist.co/), a place where you can track, share, and discover your favorite anime and manga.
 
-This app started as an individual project for CS 4750 (Mobile Application Development) at [California State Polytechnic University, Pomona](https://www.cpp.edu/) during the Spring 2022 semester. The course was taught by Associate Professor [Yu Sun](https://github.com/sunyu912/).
+This app started as an individual project by [Phillip Dang](https://github.com/philripd/) for CS 4750 (Mobile Application Development) at [California State Polytechnic University, Pomona](https://www.cpp.edu/) during the Spring 2022 semester. The course was taught by Associate Professor [Yu Sun](https://github.com/sunyu912/).
 
 ## Screenshots
 <img alt="Seasonal Anime Overview" src="assets/android/screenshots/v1.0.0/phone/seasonal-anime-overview-light.png" width="24%" ></a> <img alt="Media Details (Light Theme)" src="assets/android/screenshots/v1.0.0/phone/media-details-light.png" width="24%" ></a> <img alt="Media Details (Dark)" src="assets/android/screenshots/v1.0.0/phone/media-details-dark.png" width="24%" ></a>
@@ -39,14 +39,12 @@ This app started as an individual project for CS 4750 (Mobile Application Develo
 
 ## Credit
 
-Thank you [Yu Sun](https://github.com/sunyu912/) for introducing me to Flutter development during your course!
-
-Thank you to the developers and contributors of all the AniList [community apps](https://anilist.co/apps) for inspiring me to develop my own AniList app using Flutter!
-
-Thank you [Peter A. Bizjak](https://github.com/sunderee) for your work on [Flutter-AniList](https://github.com/sunderee/Flutter-AniList)! Your contributions helped me understand how to integrate APIs into a Flutter app!
-
-Thank you [Johannes Milke](https://github.com/JohannesMilke) for your extremely helpful Flutter guides and tutorials!
+- Thank you [Yu Sun](https://github.com/sunyu912/) for introducing me to Flutter development during your course!
+- Thank you to the developers and contributors of all the AniList [community apps](https://anilist.co/apps) for inspiring me to develop my own AniList app using Flutter!
+- Thank you [Peter A. Bizjak](https://github.com/sunderee) for your work on [Flutter-AniList](https://github.com/sunderee/Flutter-AniList)! Your contributions helped me understand how to integrate APIs into a Flutter app!
+- Thank you to the contributors of [AL-chan](https://github.com/zend10/AL-chan) for your excellent AniList client! As a user of your app, I love the UI/UX, and I'm grateful to adapt parts of it in my app.
+- Thank you [Johannes Milke](https://github.com/JohannesMilke) for your extremely helpful Flutter guides and tutorials!
 
 ## License
 
-This project is licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). Please see [LICENSE](https://github.com/philripd/anime-browser/blob/main/LICENSE) for more information.
+Anime Browser is licensed under the terms of the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0). Please see [LICENSE](https://github.com/philripd/anime-browser/blob/main/LICENSE) for a copy of the license and [COPYING](https://github.com/philripd/anime-browser/blob/main/COPYING) for the copyright notices of all sublicensed software.
