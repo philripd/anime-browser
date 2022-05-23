@@ -115,11 +115,31 @@ class DetailsPage extends StatelessWidget {
                   ],
                 ),
                 Padding(
+                  padding: const EdgeInsets.only(top: 32),
+                  child: Text(
+                    "Synopsis",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onBackground,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                Padding(
                   padding: const EdgeInsets.only(top: 16),
                   child: Text(
                     data.description,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onBackground,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 32),
+                  child: Text(
+                    "Info",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onBackground,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -130,7 +150,6 @@ class DetailsPage extends StatelessWidget {
                       0: FlexColumnWidth(30),
                       1: FlexColumnWidth(70),
                     },
-                    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                     children: [
                       TableRow(
                         children: [
