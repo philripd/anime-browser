@@ -1,15 +1,15 @@
-import 'package:animebrowser/api/models/media_list_model.dart';
+import 'package:animebrowser/api/models/media_summary_model.dart';
 import 'package:animebrowser/blocs/status_enum.dart';
 import 'package:equatable/equatable.dart';
 
 class MediaState extends Equatable {
   final StatusEnum status;
-  final List<SummaryModel> data;
+  final List<MediaSummaryModel> data;
   final String? errorMessage;
 
   const MediaState({
     required this.status,
-    this.data = const <SummaryModel>[],
+    this.data = const <MediaSummaryModel>[],
     this.errorMessage,
   });
 
@@ -17,7 +17,7 @@ class MediaState extends Equatable {
     status: StatusEnum.loading,
   );
 
-  factory MediaState.successful(List<SummaryModel> summaries) => MediaState(
+  factory MediaState.successful(List<MediaSummaryModel> summaries) => MediaState(
     status: StatusEnum.successful,
     data: summaries,
   );
@@ -30,7 +30,7 @@ class MediaState extends Equatable {
   @override
   List<Object?> get props => [
     status,
-    List<SummaryModel>.from(data),
+    List<MediaSummaryModel>.from(data),
     errorMessage,
   ];
 }

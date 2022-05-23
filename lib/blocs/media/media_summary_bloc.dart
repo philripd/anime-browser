@@ -1,4 +1,4 @@
-import 'package:animebrowser/api/repositories/summary_repository.dart';
+import 'package:animebrowser/api/repositories/media_summary_repository.dart';
 import 'package:animebrowser/blocs/media/media_event.dart';
 import 'package:animebrowser/blocs/media/media_state.dart';
 import 'package:animebrowser/config/dependencies_config.dart';
@@ -7,10 +7,10 @@ import 'package:animebrowser/utils/helpers/loggers.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MediaSummaryBloc extends Bloc<MediaEvent, MediaState> with BlocLoggy {
-  final ISummaryRepository _repository;
+  final IMediaSummaryRepository _repository;
 
   MediaSummaryBloc():
-    _repository = getIt.get<ISummaryRepository>(),
+    _repository = getIt.get<IMediaSummaryRepository>(),
     super(MediaState.loading()) {
       on<RetrieveMediaEvent>(_onRetrieveSummaryEvent);
   }
