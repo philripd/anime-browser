@@ -2,6 +2,7 @@ import 'package:animebrowser/api/models/media_details_model.dart';
 import 'package:animebrowser/blocs/media/media_details_cubit.dart';
 import 'package:animebrowser/blocs/media/media_details_state.dart';
 import 'package:animebrowser/blocs/status_enum.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -79,9 +80,7 @@ class DetailsPage extends StatelessWidget {
                                   data.seasonYear != null
                                     ? '${data.seasonYear}'
                                     : "",
-                                  style: TextStyle(
-                                    color: Theme.of(context).colorScheme.onBackground,
-                                  ),
+                                  style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                                 ),
                               ),
                               if (data.format != null && data.episodes != null)
@@ -91,9 +90,7 @@ class DetailsPage extends StatelessWidget {
                                     data.episodes == 1
                                       ? '${data.format} • 1 episode'
                                       : '${data.format} • ${data.episodes} episodes',
-                                    style: TextStyle(
-                                      color: Theme.of(context).colorScheme.onBackground,
-                                    ),
+                                    style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                                   ),
                                 ),
                               if (data.format != null && data.episodes == null)
@@ -101,9 +98,7 @@ class DetailsPage extends StatelessWidget {
                                 padding: const EdgeInsets.only(top: 8),
                                   child: Text(
                                     '${data.format}',
-                                  style: TextStyle(
-                                    color: Theme.of(context).colorScheme.onBackground,
-                                  ),
+                                  style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                                   ),
                                 ),
 
@@ -116,20 +111,27 @@ class DetailsPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 32),
-                  child: Text(
-                    "Synopsis",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onBackground,
-                      fontWeight: FontWeight.w600,
+                  child: ExpandablePanel(
+                    header: Text(
+                      "Synopsis",
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.onBackground,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: Text(
-                    data.description,
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.onBackground,
+                    collapsed: Text(
+                      data.description,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                    ),
+                    expanded: Text(
+                      data.description,
+                      style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                    ),
+                    theme: ExpandableThemeData(
+                      iconColor: Theme.of(context).colorScheme.onBackground,
+                      headerAlignment: ExpandablePanelHeaderAlignment.center,
                     ),
                   ),
                 ),
@@ -144,7 +146,7 @@ class DetailsPage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 16),
+                  padding: const EdgeInsets.only(top: 12),
                   child: Table(
                     columnWidths: const {
                       0: FlexColumnWidth(30),
@@ -155,18 +157,11 @@ class DetailsPage extends StatelessWidget {
                         children: [
                           Text(
                             'Romaji',
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.onBackground,
-                            ),
+                            style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                           ),
                           Text(
                             data.title.first,
-                            style: TextStyle(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onBackground
-                                  .withAlpha(235),
-                            ),
+                            style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                           ),
                         ],
                       ),
@@ -177,9 +172,7 @@ class DetailsPage extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 8),
                               child: Text(
                                 'English',
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onBackground,
-                                ),
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                               ),
                             ),
                             Padding(
@@ -188,9 +181,7 @@ class DetailsPage extends StatelessWidget {
                                 data.title.second != null
                                   ? '${data.title.second}'
                                   : "",
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onBackground,
-                                ),
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                               ),
                             ),
                           ],
@@ -201,18 +192,14 @@ class DetailsPage extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 8),
                             child: Text(
                               'Native',
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.onBackground,
-                              ),
+                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 8),
                             child: Text(
                               data.title.third,
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.onBackground,
-                              ),
+                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                             ),
                           ),
                         ],
@@ -223,18 +210,14 @@ class DetailsPage extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 8),
                             child: Text(
                               'Synonyms',
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.onBackground,
-                              ),
+                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 8),
                             child: Text(
                               data.synonyms.join('\n'),
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.onBackground,
-                              ),
+                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                             ),
                           ),
                         ],
@@ -245,18 +228,14 @@ class DetailsPage extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 8),
                             child: Text(
                               'Genres',
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.onBackground,
-                              ),
+                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 8),
                             child: Text(
                               data.genres.join(', '),
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.onBackground,
-                              ),
+                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                             ),
                           ),
                         ],
@@ -268,18 +247,14 @@ class DetailsPage extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 8),
                               child: Text(
                                 'Episodes',
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onBackground,
-                                ),
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(top: 8),
                               child: Text(
                                 '${data.episodes}',
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onBackground,
-                                ),
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                               ),
                             ),
                           ],
@@ -291,9 +266,7 @@ class DetailsPage extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 8),
                               child:  Text(
                                 'Episode Duration',
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onBackground,
-                                ),
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                               ),
                             ),
                             Padding(
@@ -302,9 +275,7 @@ class DetailsPage extends StatelessWidget {
                                 data.duration == 1
                                   ? '1 minute'
                                   : '${data.duration} minutes',
-                                style: TextStyle(
-                                  color: Theme.of(context).colorScheme.onBackground,
-                                ),
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                               ),
                             ),
                           ],
