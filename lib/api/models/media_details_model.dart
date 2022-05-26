@@ -21,6 +21,7 @@ class MediaDetailsModel {
   final int? averageScore;
   final int popularity;
   final int favourites;
+  final Pair<int?, int?> nextAiringEpisode;
 
   const MediaDetailsModel._({
     required this.title,
@@ -41,6 +42,7 @@ class MediaDetailsModel {
     required this.averageScore,
     required this.popularity,
     required this.favourites,
+    required this.nextAiringEpisode,
   });
 
   factory MediaDetailsModel.fromJson(Map<String, dynamic> json) => MediaDetailsModel._(
@@ -75,5 +77,9 @@ class MediaDetailsModel {
     averageScore: json['averageScore'] as int?,
     popularity: json['popularity'] as int,
     favourites: json['favourites'] as int,
+    nextAiringEpisode: Pair(
+      json['nextAiringEpisode']['airingAt'] as int?,
+      json['nextAiringEpisode']['episode'] as int?,
+    ),
   );
 }

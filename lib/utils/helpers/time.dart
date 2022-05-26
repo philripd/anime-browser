@@ -25,3 +25,15 @@ int getCurrentSeasonYear() {
   // Increment year if the current month is December
   return DateTime.now().month == 12 ? currentYear + 1 : currentYear;
 }
+
+String convertSecondsToDate(String timestamp) {
+  DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(int.parse(timestamp) * 1000);
+
+  return dateTime.year.toString() + "-" + addISO6801Padding(dateTime.month) + "-" +
+      addISO6801Padding(dateTime.day) + " "  + addISO6801Padding(dateTime.hour) + ":" +
+      addISO6801Padding(dateTime.minute) + " " + dateTime.timeZoneName;
+}
+
+String addISO6801Padding(int num) {
+  return num < 10 ? "0" + num.toString() : num.toString();
+}

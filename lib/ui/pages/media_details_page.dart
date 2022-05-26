@@ -2,6 +2,7 @@ import 'package:animebrowser/api/models/media_details_model.dart';
 import 'package:animebrowser/blocs/media/media_details_cubit.dart';
 import 'package:animebrowser/blocs/media/media_details_state.dart';
 import 'package:animebrowser/blocs/status_enum.dart';
+import 'package:animebrowser/utils/helpers/time.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,8 +38,8 @@ class DetailsPage extends StatelessWidget {
               children: [
                 Table(
                   columnWidths: const {
-                    0: FlexColumnWidth(40),
-                    1: FlexColumnWidth(60),
+                    0: FlexColumnWidth(45),
+                    1: FlexColumnWidth(55),
                   },
                   children: [
                     TableRow(
@@ -75,7 +76,7 @@ class DetailsPage extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(top: 8),
+                                padding: const EdgeInsets.only(top: 4),
                                 child: Text(
                                   data.seasonYear != null
                                     ? '${data.seasonYear}'
@@ -85,7 +86,7 @@ class DetailsPage extends StatelessWidget {
                               ),
                               if (data.format != null && data.episodes != null)
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 8),
+                                  padding: const EdgeInsets.only(top: 4),
                                   child: Text(
                                     data.episodes == 1
                                       ? '${data.format} • 1 episode'
@@ -95,13 +96,85 @@ class DetailsPage extends StatelessWidget {
                                 ),
                               if (data.format != null && data.episodes == null)
                                 Padding(
-                                padding: const EdgeInsets.only(top: 8),
+                                padding: const EdgeInsets.only(top: 4),
                                   child: Text(
                                     '${data.format}',
                                   style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                                   ),
                                 ),
-
+                              Padding(
+                                padding: const EdgeInsets.only(top: 16),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Icon(Icons.star_outlined,
+                                      color: Colors.orangeAccent,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 4),
+                                      child: Text(
+                                        '${data.averageScore}',
+                                        style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                                      ),
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.only(left: 32),
+                                      child: Icon(Icons.favorite,
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 4),
+                                      child: Text(
+                                        '${data.favourites}',
+                                        style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Icon(Icons.people,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 4),
+                                      child: Text(
+                                        '${data.popularity}',
+                                        style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              if (data.type == "ANIME")
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 16),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      const Icon(Icons.calendar_today,
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 4),
+                                        child: Text(
+                                          'Ep ${data.nextAiringEpisode.second} is airing on ',
+                                          style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4),
+                                  child: Text(
+                                    convertSecondsToDate('${data.nextAiringEpisode.first}'),
+                                    style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                                  ),
+                                ),
                             ],
                           ),
                         ),

@@ -37,5 +37,9 @@ query(
     averageScore
     popularity
     favourites
+    nextAiringEpisode {
+      airingAt
+      episode
+    }
   }
 }''';
