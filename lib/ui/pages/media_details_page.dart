@@ -107,16 +107,17 @@ class DetailsPage extends StatelessWidget {
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    const Icon(Icons.star_outlined,
-                                      color: Colors.orangeAccent,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 4),
-                                      child: Text(
-                                        '${data.averageScore}',
-                                        style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                                    if (data.averageScore != null)
+                                      const Icon(Icons.star_outlined,
+                                        color: Colors.orangeAccent,
                                       ),
-                                    ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 4),
+                                        child: Text(
+                                          '${data.averageScore}',
+                                          style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                                        ),
+                                      ),
                                     const Padding(
                                       padding: EdgeInsets.only(left: 32),
                                       child: Icon(Icons.favorite,
@@ -150,31 +151,34 @@ class DetailsPage extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              if (data.type == "ANIME")
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 16),
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      const Icon(Icons.calendar_today,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 4),
-                                        child: Text(
-                                          'Ep ${data.nextAiringEpisode.second} is airing on ',
-                                          style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4),
-                                  child: Text(
-                                    convertSecondsToDate('${data.nextAiringEpisode.first}'),
-                                    style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
-                                  ),
-                                ),
+                              // if (data.type == "ANIME" && data.status != "FINISHED" &&
+                              //     data.nextAiringEpisode.first != null &&
+                              //     data.nextAiringEpisode.second != null)
+                              //   Padding(
+                              //     padding: const EdgeInsets.only(top: 16),
+                              //     child: Row(
+                              //       crossAxisAlignment: CrossAxisAlignment.center,
+                              //       children: [
+                              //         const Icon(Icons.calendar_today,
+                              //         ),
+                              //         Padding(
+                              //           padding: const EdgeInsets.only(left: 4),
+                              //           child: Text(
+                              //             'Ep ${data.nextAiringEpisode.second} is airing on ',
+                              //             style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              //           ),
+                              //         ),
+                              //       ],
+                              //     ),
+                              //   ),
+                              //   Padding(
+                              //     padding: const EdgeInsets.only(top: 4),
+                              //     child: Text(
+                              //       convertSecondsToYYYYMMDD('${data.nextAiringEpisode.first}') + " at " +
+                              //       convertSecondsToHHmm('${data.nextAiringEpisode.first}'),
+                              //       style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              //     ),
+                              //   ),
                             ],
                           ),
                         ),
@@ -183,7 +187,7 @@ class DetailsPage extends StatelessWidget {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 32),
+                  padding: const EdgeInsets.only(top: 16),
                   child: ExpandablePanel(
                     header: Text(
                       "Synopsis",
@@ -313,6 +317,24 @@ class DetailsPage extends StatelessWidget {
                           ),
                         ],
                       ),
+                      if (data.format != null)
+                        TableRow(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                'Format',
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text('${data.format}',
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              ),
+                            ),
+                          ],
+                        ),
                       if (data.episodes != null)
                         TableRow(
                           children: [
@@ -337,7 +359,7 @@ class DetailsPage extends StatelessWidget {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(top: 8),
-                              child:  Text(
+                              child: Text(
                                 'Episode Duration',
                                 style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                               ),
@@ -353,6 +375,99 @@ class DetailsPage extends StatelessWidget {
                             ),
                           ],
                         ),
+                      TableRow(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(
+                              'Source',
+                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(data.source,
+                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                            ),
+                          ),
+                        ],
+                      ),
+                      TableRow(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(
+                              'Status',
+                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(data.status,
+                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                            ),
+                          ),
+                        ],
+                      ),
+                      if (data.startDate?.first != null && data.startDate?.second != null && data.startDate?.third != null)
+                        TableRow(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                'Start Date',
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text('${data.startDate?.first}-' +
+                                  addISO6801PaddingString('${data.startDate?.second}') + "-" +
+                                  addISO6801PaddingString('${data.startDate?.third}'),
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              ),
+                            ),
+                          ],
+                        ),
+                      if (data.endDate?.first != null && data.endDate?.second != null && data.endDate?.third != null)
+                        TableRow(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                'End Date',
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text('${data.endDate?.first}-' +
+                                  addISO6801PaddingString('${data.endDate?.second}') + "-" +
+                                  addISO6801PaddingString('${data.endDate?.third}'
+                                  ),
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              ),
+                            ),
+                          ],
+                        ),
+                      if (data.season != null)
+                        TableRow(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                'Season',
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text('${data.season}',
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              ),
+                            ),
+                          ],
+                        ),
                     ],
                   ),
                 ),
@@ -360,7 +475,9 @@ class DetailsPage extends StatelessWidget {
             );
           } else {
             return Center(
-              child: Text('Application error, ${state.runtimeType}'),
+              child: Text('Application error, ${state.runtimeType}',
+                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+              ),
             );
           }
         },

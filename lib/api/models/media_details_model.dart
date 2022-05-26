@@ -8,8 +8,8 @@ class MediaDetailsModel {
   final String? format;
   final String status;
   final String description;
-  final Trio<int?, int?, int?> startDate;
-  final Trio<int?, int?, int?> endDate;
+  final Trio<int?, int?, int?>? startDate;
+  final Trio<int?, int?, int?>? endDate;
   final String? season;
   final int? seasonYear;
   final int? episodes;
@@ -21,7 +21,7 @@ class MediaDetailsModel {
   final int? averageScore;
   final int popularity;
   final int favourites;
-  final Pair<int?, int?> nextAiringEpisode;
+  // final Pair<int?, int?> nextAiringEpisode;
 
   const MediaDetailsModel._({
     required this.title,
@@ -42,7 +42,7 @@ class MediaDetailsModel {
     required this.averageScore,
     required this.popularity,
     required this.favourites,
-    required this.nextAiringEpisode,
+    // required this.nextAiringEpisode,
   });
 
   factory MediaDetailsModel.fromJson(Map<String, dynamic> json) => MediaDetailsModel._(
@@ -52,8 +52,8 @@ class MediaDetailsModel {
       json['title']['native'] as String,
     ),
     type: json['type'] as String?,
-    format: json['format'] as String?,
-    status: json['status'] as String,
+    format: (json['format'] as String?)?.replaceAll('_', ' '),
+    status: (json['status'] as String).replaceAll('_', ' '),
     description: (json['description'] as String).replaceAll(
       RegExp(r'<[^>]*>'), ''),
     startDate: Trio(
@@ -70,16 +70,16 @@ class MediaDetailsModel {
     seasonYear: json['seasonYear'] as int?,
     episodes: json['episodes'] as int?,
     duration: json['duration'] as int?,
-    source: json['season'] as String,
+    source: (json['source'] as String).replaceAll('_', ' '),
     coverImage: json['coverImage']['extraLarge'] as String,
     genres: (json['genres'] as List<dynamic>).cast<String>(),
     synonyms: (json['synonyms'] as List<dynamic>).cast<String>(),
     averageScore: json['averageScore'] as int?,
     popularity: json['popularity'] as int,
     favourites: json['favourites'] as int,
-    nextAiringEpisode: Pair(
-      json['nextAiringEpisode']['airingAt'] as int?,
-      json['nextAiringEpisode']['episode'] as int?,
-    ),
+    // nextAiringEpisode: Pair(
+    //   json['nextAiringEpisode']['airingAt'] as int?,
+    //   json['nextAiringEpisode']['episode'] as int?,
+    // ),
   );
 }

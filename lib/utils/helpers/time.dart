@@ -26,14 +26,24 @@ int getCurrentSeasonYear() {
   return DateTime.now().month == 12 ? currentYear + 1 : currentYear;
 }
 
-String convertSecondsToDate(String timestamp) {
+String convertSecondsToYYYYMMDD(String timestamp) {
   DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(int.parse(timestamp) * 1000);
 
-  return dateTime.year.toString() + "-" + addISO6801Padding(dateTime.month) + "-" +
-      addISO6801Padding(dateTime.day) + " "  + addISO6801Padding(dateTime.hour) + ":" +
-      addISO6801Padding(dateTime.minute) + " " + dateTime.timeZoneName;
+  return dateTime.year.toString() + "-" + addISO6801PaddingInt(dateTime.month) +
+      "-" + addISO6801PaddingInt(dateTime.day);
 }
 
-String addISO6801Padding(int num) {
+String convertSecondsToHHmm(String timestamp) {
+  DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(int.parse(timestamp) * 1000);
+
+  return addISO6801PaddingInt(dateTime.hour) + ":" + addISO6801PaddingInt(dateTime.minute) +
+      " " + dateTime.timeZoneName;
+}
+
+String addISO6801PaddingInt(int num) {
   return num < 10 ? "0" + num.toString() : num.toString();
+}
+
+String addISO6801PaddingString(String num) {
+  return int.parse(num) < 10 ? "0" + num : num;
 }
