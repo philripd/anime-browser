@@ -47,4 +47,4 @@ This app started as an individual project by [Phillip Dang](https://github.com/p
 
 ## License
 
-Anime Browser is licensed under the terms of the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0). Please see [LICENSE](https://github.com/philripd/anime-browser/blob/main/LICENSE) for a copy of the license and [COPYING](https://github.com/philripd/anime-browser/blob/main/COPYING) for the copyright notices of all sublicensed software.
+Anime Browser is licensed under the terms of the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0). Please see [LICENSE](https://github.com/philripd/anime-browser/blob/main/LICENSE) for a copy of the license and [COPYING](https://github.com/philripd/anime-browser/blob/main/COPYING.md) for the copyright notices of all sublicensed software.
