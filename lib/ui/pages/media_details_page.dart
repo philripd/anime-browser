@@ -111,18 +111,16 @@ class DetailsPage extends StatelessWidget {
                                       const Icon(Icons.star_outlined,
                                         color: Colors.orangeAccent,
                                       ),
+                                    if (data.averageScore != null)
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 4),
+                                        padding: const EdgeInsets.only(left: 4, right: 32),
                                         child: Text(
                                           '${data.averageScore}',
                                           style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                                         ),
                                       ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(left: 32),
-                                      child: Icon(Icons.favorite,
-                                        color: Colors.red,
-                                      ),
+                                    const Icon(Icons.favorite,
+                                      color: Colors.red,
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(left: 4),
