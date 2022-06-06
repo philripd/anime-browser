@@ -108,19 +108,25 @@ class DetailsPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     if (data.averageScore != null)
-                                      const Icon(Icons.star_outlined,
-                                        color: Colors.orangeAccent,
+                                      const Tooltip(
+                                        message: "Weighted Average Score",
+                                        child: Icon(Icons.star_outlined,
+                                          color: Colors.orangeAccent,
+                                        ),
                                       ),
                                     if (data.averageScore != null)
                                       Padding(
                                         padding: const EdgeInsets.only(left: 4, right: 32),
                                         child: Text(
-                                          '${data.averageScore}',
+                                          '${data.averageScore}%',
                                           style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
                                         ),
                                       ),
-                                    const Icon(Icons.favorite,
-                                      color: Colors.red,
+                                    const Tooltip(
+                                      message: "Favourites",
+                                      child: Icon(Icons.favorite,
+                                        color: Colors.red,
+                                      ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(left: 4),
@@ -137,7 +143,10 @@ class DetailsPage extends StatelessWidget {
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    const Icon(Icons.people,
+                                    const Tooltip(
+                                      message: "Popularity",
+                                      child: Icon(Icons.people,
+                                      ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(left: 4),
@@ -279,24 +288,25 @@ class DetailsPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      TableRow(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8),
-                            child: Text(
-                              'Synonyms',
-                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                      if (data.synonyms.isNotEmpty)
+                        TableRow(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                'Synonyms',
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8),
-                            child: Text(
-                              data.synonyms.join('\n'),
-                              style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Text(
+                                data.synonyms.join('\n'),
+                                style: TextStyle(color: Theme.of(context).colorScheme.onBackground),
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
+                          ],
+                        ),
                       TableRow(
                         children: [
                           Padding(

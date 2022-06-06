@@ -20,6 +20,7 @@ ThemeData lightAppTheme(BuildContext context) => ThemeData.from(
     iconTheme: const IconThemeData(color: Colors.black87),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    elevation: 0,
     selectedItemColor: colorProduct,
   ),
 );
@@ -42,6 +43,7 @@ ThemeData darkAppTheme(BuildContext context) => ThemeData.from(
     iconTheme: const IconThemeData(color: Colors.white),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    elevation: 0,
     selectedItemColor: colorProduct,
   ),
 );
