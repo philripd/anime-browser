@@ -1,21 +1,18 @@
 String getCurrentSeason() {
   int currentMonth = DateTime.now().month;
 
-  // January, February
-  if (currentMonth < 3) {
+  // January, February, March
+  if (currentMonth < 4) {
     return "WINTER";
-  // March, April, May
-  } else if (currentMonth < 6) {
+  // April, May, June
+  } else if (currentMonth < 7) {
     return "SPRING";
-  // June, July, August
-  } else if (currentMonth < 9) {
+  // July, August, September
+  } else if (currentMonth < 10) {
     return "SUMMER";
-  // September, October, November
-  } else if (currentMonth < 12) {
-    return "FALL";
-  // December
+  // October, November, December
   } else {
-    return "WINTER";
+    return "FALL";
   }
 }
 
